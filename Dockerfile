@@ -1,7 +1,7 @@
 # 基于Node.js的官方Docker镜像
 FROM node:14-buster
 
-# 设置工作目录
+# 设置工作目录到TAR下的项目文件夹
 WORKDIR /usr/demo
 
 # 安装NVM
@@ -21,8 +21,8 @@ RUN npm install pm2 -g
 COPY . /usr/demo
 
 # 安装项目依赖
-RUN cd /usr/demo/SillyTavern && npm install
-RUN cd /usr/demo/clewd && npm install
+RUN cd SillyTavern && npm install
+RUN cd clewd && npm install
 
 # 配置和启动脚本（根据需要调整）
 COPY start.sh /usr/demo/start.sh
